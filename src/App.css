@@ -1,0 +1,122 @@
+.carritoWidget {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 70px;
+  font-weight: bolder;
+  color: #e97100;
+  background-color: #ffe4c4;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.carritoIcon {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.carritoCantidad {
+  margin: 0;
+  padding: 0;
+}
+.NavBar {
+  
+  background-color:#e97100 ;
+  margin-bottom: 15px;
+}
+
+
+
+.NavListBrand {
+  justify-content: start!important;
+  align-items: start!important;
+  font-weight: bolder;
+  color:#ffe4c4!important;
+}
+
+.NavListToggle {
+ color: #ffe4c4;
+}
+
+.NavListCollapse {
+  color: #ffe4c4;
+  padding: 0;
+  margin: 0;
+}
+
+.NavLink {
+  color: #ffe4c4;
+  font-weight: bolder;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  padding: 0 20px;
+}
+
+
+.RowCard {
+  display: flex;
+  justify-content: center;
+}
+.Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 300px; 
+  max-height: 400px;
+  height: 300px;
+  width: 220px;
+}
+.CardBody {
+  height: 130px;
+  overflow-y: auto;
+}
+
+.CardImg {
+    max-width: 250px;
+    max-height: 170px;
+    width: 100%;
+}
+.ButtonMasInfo {
+  background-color: #e97100 !important;
+  border: #e97100;
+  width: 100%;
+}
+
+.ColDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.CardDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row!important;
+  width: 60%;
+  height: 100%;
+}
+
+.itemDetailPrice {
+  font-weight: bolder;
+}
+.itemDetailCategory {
+  font-size: x-small;
+}
+.row {
+  justify-content: center;
+}
+
+.imgDetailContainer {
+  width: 100%;
+  height: 100%;
+}
