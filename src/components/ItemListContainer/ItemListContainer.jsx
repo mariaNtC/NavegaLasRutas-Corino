@@ -3,34 +3,51 @@ import Container from "react-bootstrap/Container"
 import ItemList from "./ItemList.jsx"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { getProductos, getProductoPorCategoria } from '../../firebase/db'
+import { useCartContext } from "../../context/cartContext.js" 
+import Loader from "../Loader.jsx"
 
+function ItemListContainer () {
+    const [items, setItems] = useState([])
+    const { categoriaId } = useParams()
+    const { cart } = useCartContext()
+    const [loading, setLoading] = useState(true)
 
-function ItemListContainer (){
-
-const [items, setItems] = useState([])
-const { categoriaId } = useParams()
-
-
-useEffect(() => {
-    fetch('https://66e7a03cb17821a9d9d970ed.mockapi.io/api/tienda/products')
-        .then(res => res.json())
-        .then(res => {
-            if (!categoriaId) {
-                setItems(res)
-        } else {
-            const productosPorCategoria = res.filter(item => item.category === categoriaId)
-            setItems(productosPorCategoria)            
+    useEffect(() => {
+        setLoading(true)
+        
+        const fetchData = async () => {
+            try {
+                let productos;
+                if (categoriaId) {
+                    productos = await getProductoPorCategoria(categoriaId)
+                } else {
+                    productos = await getProductos()
+                }
+                setItems(productos)
+            } catch (error) {
+                console.error("Error al obtener los productos:", error)
+            } finally {
+                setLoading(false)
+            }
         }
-        })
-}, [categoriaId])
 
-return (
-    <Container>
-        <Row xs={1} md={2} lg={4} className="g-4">
-            <ItemList items={items} />
-        </Row>
-    </Container>
-)
+        fetchData()
+
+    }, [categoriaId])
+ 
+
+    return (
+        
+        <Container className="containerItemList">              
+              {loading ? (<Loader loading={loading} />) : (
+            <Row xs={1} md={2} lg={4} className="g-4">
+                <ItemList items={items} />
+            </Row>
+              )}
+        </Container>
+        
+    )
 }
 
 export default ItemListContainer

@@ -1,6 +1,5 @@
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
-import Button from "react-bootstrap/Button"
 import { Link } from 'react-router-dom'
 
 function Item ({ item }) {
@@ -8,17 +7,14 @@ function Item ({ item }) {
         
         <Col className="RowCard" >
             <Card className="Card">
-                <Card.Img className="CardImg" variant="top" src={item.avatar} />
+                <Card.Img className="CardImg" variant="top" src={item.image} />
                 <Card.Body className="CardBody">
-                    <Card.Title>{item.name}</Card.Title>
-                    {/* <Card.Text>
-                        {item.category}
-                    </Card.Text> */}
-                    <Card.Text>
-                        ${item.price}
-                    </Card.Text>
+                    <Card.Title>{item.name}</Card.Title>                  
                 </Card.Body>
-                <Button className="ButtonMasInfo" as={Link} to={`/producto/${item.id}`}>Más información</Button>
+                <Card.Text className="CardPrice">
+                        ${item.price}
+                </Card.Text>
+                <Link className="linkButtonMasInfo"  to={`/producto/${item.id}`}> <button className="ButtonMasInfo" >  Más información</button></Link>
 
             </Card>
         
